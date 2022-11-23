@@ -182,8 +182,7 @@ public class MemberDAO extends DTO {
 
 		// Member Insert Test OK
 //		md.Insert(new MemberDTO("testUser", "1234", "eMail@naver.com", 990101, 1));
-//		md.Insert(new MemberDTO("testManager", "1234", "eMail2@naver.com", 900101, 3));
-//		md.Insert(new MemberDTO("testUser2", "1234", "eMail2@naver.com", 910101, 3));
+//		md.Insert(new MemberDTO("testManager", "1234", "eMail2@naver.com", 900101, 2));
 
 		// Member Select Test OK
 		md.selectAll();
@@ -195,7 +194,7 @@ public class MemberDAO extends DTO {
 		// Member Select Test OK
 //		md.selectOne("testUser"); // 해당 회원이 존재할 경우
 //		System.out.println(); // 구분선
-		md.selectOne("false"); // 해당 회원이 존재하지 않을 경우
+//		md.selectOne("false"); // 해당 회원이 존재하지 않을 경우
 //		md.selectOne("testManager"); // Test
 	}
 }

@@ -15,8 +15,7 @@ public class CinemaService {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 
-	public CinemaService() {
-	}
+	public CinemaService() {}
 
 	CinemaDAO dao = CinemaDAO.getInstance();
 
@@ -74,14 +73,15 @@ public class CinemaService {
 		}
 	}
 
-	public void cinemaShowInfoAll() {
+	public Object cinemaShowInfoAll() {
 		CinemaDAO dao = new CinemaDAO();
-		dao.selectAll();
+		return dao.selectAll();
 	}
 
 	public static void main(String[] args) {
 		CinemaService ser = new CinemaService();
-//		ser.cinemaShowInfoAll();
+		ser.cinemaShowInfoAll();
+		
 //		ser.cinemaInsert("testUser", "1234"); // OK
 //		ser.cinemaInsert("testManager", "1234"); // OK
 //		ser.cinemaInsert("false", "1234"); // Error

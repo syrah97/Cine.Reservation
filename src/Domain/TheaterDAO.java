@@ -67,7 +67,7 @@ public class TheaterDAO {
 			conn = DBConnection.getConnection();
 			pstmt = conn.prepareStatement("select * from theaterSeat_view");
 			rs = pstmt.executeQuery();
-
+			
 			// 만약에 rs에 값이 들어갔다면(0이 아니라면)
 			if (rs != null) {
 //				System.out.println("tbl_theater Connected!");
@@ -164,12 +164,19 @@ public class TheaterDAO {
 
 		TheaterDAO td = TheaterDAO.getInstance();
 
+		/*
+		 * 	pstmt.setInt(1, dto.getTheaterNum());
+			pstmt.setInt(2, dto.getTheaterSeat());
+			pstmt.setString(3, dto.getTheaterName());
+			pstmt.setInt(4, dto.getCinemaNum());
+		 */
+
+		td.Insert(new TheaterDTO(1, 1, "1관",1));
+		td.Insert(new TheaterDTO(1, 2, "1관",2));
+		td.Insert(new TheaterDTO(1, 3, "1관",3));
+		td.Insert(new TheaterDTO(1, 4, "1관",4));
+
 		td.selectAll();
-//		td.Insert(new TheaterDTO(1, 1, "1관",1));
-//		td.Insert(new TheaterDTO(1, 2, "1관",1));
-//		td.Insert(new TheaterDTO(1, 3, "1관",1));
-//		td.Insert(new TheaterDTO(1, 4, "1관",1));
-//		td.Insert(new TheaterDTO(1, 5, "1관",1));
 
 	}
 

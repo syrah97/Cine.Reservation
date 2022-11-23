@@ -1,6 +1,7 @@
 package Controller;
 
 import Domain.DTO;
+import Domain.TheaterDTO;
 import Service.TheaterService;
 
 public class TheaterController implements SubController {
@@ -11,11 +12,11 @@ public class TheaterController implements SubController {
 	public Object excute(int SN, DTO dto) {
 		Object obj = null;
 
-		// 상영관 조회, 상영관 영화조회, 상영관 좌석조회
 		switch (SN) {
-		case 1: // 좌석 조회
-			System.out.println("상영관 조회 서비스 요청");
-			break;
+		case 1:
+			TheaterDTO c = (TheaterDTO) dto;
+
+			return service.theaterShowInfoAll();
 		case 2: // 좌석 선택
 			System.out.println("상영관 영화 조회 서비스 요청");
 			break;

@@ -68,9 +68,9 @@ public class TheaterService {
 
 	}
 
-	public void theaterShowInfoAll() {
+	public Object theaterShowInfoAll() {
 		TheaterDAO dao = new TheaterDAO();
-		dao.selectAll();
+		return dao.selectAll();
 	}
 
 	public static void main(String[] args) {

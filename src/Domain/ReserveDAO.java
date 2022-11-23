@@ -124,42 +124,42 @@ public class ReserveDAO extends DTO {
 	 * Service에 넣어야 할 메소드
 	 */
 	
-//	public ReserveDAO movieTimeChoice(String movieName) {
-//		ArrayList<MovieDTO> list = new ArrayList<MovieDTO>();
-//		MovieDTO dto = new MovieDTO();
-//
-//		String sql = "select * from tbl_movie where movieName=?";
-//		conn = DBConnection.getConnection();
-//		try {
-//			pstmt = conn.prepareStatement(sql);
-//			pstmt.setString(1, movieName);
-//			rs = pstmt.executeQuery();
-//
-//			if (rs.next()) {
-//				System.out.println("Success!"); // 결과 확인 후 주석 처리
-//				dto = new MovieDTO();
-//				dto.setMovieCode(rs.getInt("movieCode"));
-//				dto.setMovieName(rs.getString("movieName"));
-//				dto.setMovieStartDate(rs.getString("movieStartDate"));
-//				dto.setMovieEndDate(rs.getString("movieEndDate"));
-//				dto.setMovieTime(rs.getString("movieTime"));
-//				dto.setCinemaNum(rs.getInt("cinemaNum"));
-//				System.out.println("<상영 영화 조회>");
-//				System.out.println("영화 상영시간: " + rs.getString("movieTime"));
-//
-//				for (MovieDTO m : list) {
-//					System.out.print(m.getMovieTime() + "  ");
-//				}
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//
-////		tmp_movieTime = movieTime;
-//
-//		return null;
-//
-//	}
+	public ReserveDAO movieTimeChoice(String movieName) {
+		ArrayList<MovieDTO> list = new ArrayList<MovieDTO>();
+		MovieDTO dto = new MovieDTO();
+
+		String sql = "select * from tbl_movie where movieName=?";
+		conn = DBConnection.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, movieName);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				System.out.println("Success!"); // 결과 확인 후 주석 처리
+				dto = new MovieDTO();
+				dto.setMovieCode(rs.getInt("movieCode"));
+				dto.setMovieName(rs.getString("movieName"));
+				dto.setMovieStartDate(rs.getString("movieStartDate"));
+				dto.setMovieEndDate(rs.getString("movieEndDate"));
+				dto.setMovieTime(rs.getString("movieTime"));
+				dto.setCinemaNum(rs.getInt("cinemaNum"));
+				System.out.println("<상영 영화 조회>");
+				System.out.println("영화 상영시간: " + rs.getString("movieTime"));
+
+				for (MovieDTO m : list) {
+					System.out.print(m.getMovieTime() + "  ");
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+//		tmp_movieTime = movieTime;
+
+		return null;
+
+	}
 //
 //	public ReserveDAO movieSeatChoice() {
 //		/*
@@ -409,7 +409,7 @@ public class ReserveDAO extends DTO {
 	public static void main(String[] args) {
 		ReserveDAO dao = new ReserveDAO();
 		
-		System.out.println(tmp_movieName);
+//		System.out.println(tmp_movieName);
 		
 		/*
 		 * 	pstmt.setInt(1, dto.getTicketNum());

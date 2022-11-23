@@ -31,8 +31,8 @@ public class DBConnection {
 
 	}
 
-//	public static void main(String[] args) {
-//		// DB Connection Test
-//		DBConnection dc = new DBConnection();
-//	}
+	public static void main(String[] args) {
+		// DB Connection Test
+		DBConnection dc = new DBConnection();
+	}
 }

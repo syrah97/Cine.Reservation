@@ -3,6 +3,7 @@ package Service;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import Domain.DBConnection;
 import Domain.MemberDTO;
@@ -77,9 +78,15 @@ public class MovieService {
 		return null;
 	}
 
-	public void movieShowInfoAll() {
-		MovieDAO dao = new MovieDAO();
-		dao.selectMovieAll();
+//	public void movieShowInfoAll() {
+//		MovieDAO dto = new MovieDAO();
+//		conn = DBConnection.getConnection();
+//
+//		dao.selectMovieAll();
+//	}
+	
+	public ArrayList<MovieDTO> movieShowInfoAll(){
+		return mDAO.selectMovieAll();
 	}
 
 	public void movieShowInfoSelect(String movieName) {
@@ -92,11 +99,11 @@ public class MovieService {
 
 		// 시간상 Insert Test 생략
 		// showInfo Test 완료
-//		ser.movieShowInfoAll();
+		ser.movieShowInfoAll();
 //		System.out.println();
 //		ser.movieShowInfoSelect("블랙 팬서");
 
-		ser.movieInsert("testUser", "1234");
+//		ser.movieInsert("testUser", "1234");
 //		ser.movieInsert("testManager", "1234");
 	}
 }

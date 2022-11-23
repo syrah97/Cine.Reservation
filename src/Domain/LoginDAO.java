@@ -111,6 +111,7 @@ public class LoginDAO extends DTO {
 			}
 			if (conn != null) {
 				conn.close();
+				System.out.println("<로그아웃 성공>");
 				System.out.println("로그아웃이 완료되었습니다.");
 			} else {
 				System.out.println("현재 로그인 상태가 아닙니다.");
@@ -123,7 +124,7 @@ public class LoginDAO extends DTO {
 	public static void main(String[] args) {
 		LoginDAO ls = new LoginDAO();
 		// Login Test 완료
-		ls.memberRole("testUser", "1234");
+//		ls.memberRole("testUser", "1234");
 //		ls.memberRole("testManager", "1234");
 //		ls.memberLogin("testUser", "1234");
 //		ls.memberLogin("testManager", "1234");

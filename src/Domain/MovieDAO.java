@@ -58,7 +58,8 @@ public class MovieDAO extends DTO {
 			pstmt.setString(5, dto.getMovieTime());
 			pstmt.setInt(6, dto.getCinemaNum());
 			result = pstmt.executeUpdate();
-
+			rs = pstmt.executeQuery();
+			
 			if (result > 0) {
 				System.out.println("영화 추가 성공");
 			} else {
@@ -134,8 +135,7 @@ public class MovieDAO extends DTO {
 	// 상영 영화 정보 출력하기
 	public ArrayList<MovieDTO> selectMovieAll() {
 		ArrayList<MovieDTO> list = new ArrayList<MovieDTO>();
-		MovieDTO dto = null;
-//		MovieDTO dto = new MovieDTO(); // null!
+		MovieDTO dto = new MovieDTO(); // null!
 		String sql = "select * from tbl_movie";
 		try {
 			// DBConnection 클래스의 getConnection 메소드를 호출한다. (DB 연결용)
@@ -159,13 +159,21 @@ public class MovieDAO extends DTO {
 					list.add(dto);
 				}
 				System.out.println("<영화 전체 목록(상영 시간)>");
-				System.out.print("영화 제목: " + dto.getMovieName() + " 영화 개봉일: " + dto.getMovieStartDate() + " 영화 종영일: "
-						+ dto.getMovieEndDate() + " 영화 상영시간: ");
 				for (MovieDTO m : list) {
-					System.out.print(m.getMovieTime() + "  ");
+					System.out.print("영화 코드: " + m.getMovieCode());
+					System.out.print(" 영화 제목: " + m.getMovieName());
+					System.out.print(" 영화 개봉일: " + m.getMovieStartDate());
+					System.out.print(" 영화 종영일: " + m.getMovieEndDate());
+					System.out.print(" 영화 상영 시간: " + m.getMovieTime());
+					System.out.print(" 영화관 코드: " + m.getCinemaNum() + "\n");
 				}
-//
-//				// ArrayList로 출력하니 너무 지저분해서 삭제했습니다.
+//				System.out.print("영화 제목: " + dto.getMovieName() + " 영화 개봉일: " + dto.getMovieStartDate() + " 영화 종영일: "
+//						+ dto.getMovieEndDate() + " 영화 상영시간: ");
+//				for (MovieDTO m : list) {
+//					System.out.print(m.getMovieTime() + "  ");
+//				}
+
+				// ArrayList로 출력하니 너무 지저분해서 삭제했습니다.
 //				System.out.println(list);
 			}
 
@@ -176,8 +184,16 @@ public class MovieDAO extends DTO {
 		// 마지막에 무조건 실행된다.
 		finally {
 			// 자원 관리
-			try {rs.close();} catch (Exception e) {e.printStackTrace();}
-			try {pstmt.close();} catch (Exception e) {e.printStackTrace();}
+			try {
+				rs.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			try {
+				pstmt.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		return list;
 
@@ -190,28 +206,32 @@ public class MovieDAO extends DTO {
 
 		// Insert Test
 		// 블랙 팬서 러닝 타임: 2시간 15분
+
+		/*
+		 * dto.setMovieCode(rs.getInt("movieCode"));
+		 * dto.setMovieName(rs.getString("movieName"));
+		 * dto.setMovieStartDate(rs.getString("movieStartDate"));
+		 * dto.setMovieEndDate(rs.getString("movieEndDate"));
+		 * dto.setMovieTime(rs.getString("movieTime"));
+		 * dto.setCinemaNum(rs.getInt("cinemaNum"));
+		 */
+
 //		md.Insert(new MovieDTO(1, "블랙 팬서", "2023년 11월 11일", "2023년 12월 11일", "09시 35분", 1));
-//		md.Insert(new MovieDTO(2, "블랙 팬서", "2023년 11월 11일", "2023년 12월 11일", "12시 50분", 1));
-//		md.Insert(new MovieDTO(3, "블랙 팬서", "2023년 11월 11일", "2023년 12월 11일", "15시 20분", 1));
-//		md.Insert(new MovieDTO(4, "블랙 팬서", "2023년 11월 11일", "2023년 12월 11일", "17시 45분", 1));
-//
-//		md.Insert(new MovieDTO(2, "데시벨", "2022년 11월 16일", "2022년 12월 16일", "1시간 50분",1));
-//		md.Insert(new MovieDTO(3, "동감", "2022년 11월 16일", "2022년 12월 16일", "1시간 54분",1));
+//		md.Insert(new MovieDTO(2, "올빼미", "2023년 11월 23일", "2023년 12월 23일", "10시 30분", 1));
+//		md.Insert(new MovieDTO(3, "동감", "2023년 11월 16일", "2023년 12월 16일", "12시 50분", 1));
+//		md.Insert(new MovieDTO(4, "유포자", "2023년 11월 23일", "2023년 12월 23일", "13시 00분", 1));
+//		md.Insert(new MovieDTO(5, "블랙 팬서", "2023년 11월 11일", "2023년 12월 11일", "15시 20분", 2));
+//		md.Insert(new MovieDTO(6, "올빼미", "2023년 11월 23일", "2023년 12월 23일", "18시 35분", 2));
+//		md.Insert(new MovieDTO(7, "데시벨", "2023년 11월 16일", "2023년 12월 16일", "20시 23분", 2));
 
 		// Select Test
 		md.selectMovieAll();
 
-		System.out.println();
-
 		// SelectOne test
-		md.selectOne("블랙 팬서"); // true: 상영 영화가 존재할 경우
+//		md.selectOne("블랙 팬서"); // true: 상영 영화가 존재할 경우
 //		md.selectOne("데시벨"); 	// true: 상영 영화가 존재할 경우
 
-//		System.out.println(""); 	// 구분선
-
-		System.out.println();
 //		md.selectOne("false"); // false: 상영 영화가 존재하지 않을 경우
 
-//		md.selectOne("TestMovie"); 	// Test
 	}
 }
