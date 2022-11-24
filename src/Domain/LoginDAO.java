@@ -22,7 +22,7 @@ public class LoginDAO extends DTO {
 	// ********************************************************************************
 
 	// github open source code version: Test 완료
-	public int memberLogin(String mId, String mPw) {
+	public int Login(String mId, String mPw) {
 		MemberDTO dto = new MemberDTO();
 		int result = 0;
 
@@ -55,7 +55,7 @@ public class LoginDAO extends DTO {
 	}
 
 	// jy version: Test 완료
-	public MemberDTO memberRole(String mId, String mPw) {
+	public MemberDTO Role(String mId, String mPw) {
 		String sql = "select * from tbl_member where mId=? and mPw=?";
 		conn = DBConnection.getConnection();
 

@@ -27,12 +27,15 @@ public class MemberController implements SubController {
 			}
 			break;
 		case 2:
-			// 회원 전체 조회 (권한)
+			// 회원 전체 조회 (권한 확인 필요)
 			ms.memberShowInfoAll("testUser", "1234");
 
 			break;
 		case 3:
-			// 해당 회원 조회 (권한)
+			// 해당 회원 조회
+			// 로그인이 된 상태라면 바로 회원 정보를 출력한다.
+//			ms.memberShowInfoOne("testUser",null);
+			ms.memberShowInfoOne("testUser","1234");
 
 			break;
 //		case 4:
@@ -46,8 +49,9 @@ public class MemberController implements SubController {
 
 	public static void main(String[] args) {
 		MemberController mc = new MemberController();
-		mc.excute(1, null);
-		mc.excute(2, null);
+//		mc.excute(1, null);
+//		mc.excute(2, null);
+		mc.excute(3, null);
 	}
 
 }

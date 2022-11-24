@@ -18,6 +18,7 @@ public class FrontController {
 		map.put("/cinema", new CinemaController());
 		map.put("/theater", new TheaterController());
 		map.put("/movie", new MovieController());
+		map.put("/member", new MemberController());
 	}
 
 	public Object MainController(String menu, int SN, DTO dto) {

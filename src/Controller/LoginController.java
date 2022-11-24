@@ -7,15 +7,17 @@ import java.sql.ResultSet;
 import Domain.DTO;
 import Domain.MemberDTO;
 import Service.LoginService;
+import View.GUI_Login;
 
 public class LoginController implements SubController {
 	private LoginService service = LoginService.getInstance();
+	LoginService ser = new LoginService();
 
 	static Connection conn = null;
 	static PreparedStatement pstmt = null;
 	static ResultSet rs = null;
 
-	LoginService ser = new LoginService();
+	private String mId, mPw;
 
 	@Override
 	public Object excute(int SN, DTO dto) {
@@ -25,15 +27,12 @@ public class LoginController implements SubController {
 			// LoginService.Login()
 			MemberDTO d = (MemberDTO) dto;
 
-//			String mId = d.getmId();
-//			String mPw = d.getmPw();
-
 			ser.Login("testUser", "1234");
 
 			break;
 		case 2:
 			// Logout Error
-			ser.Logout(pstmt, rs, conn);
+//			ser.Logout(pstmt, rs, conn);
 
 			break;
 //		case 3:

@@ -65,12 +65,14 @@ public class MemberDAO extends DTO {
 		return result;
 	}
 
-	public MemberDTO selectOne(String member) {
-		String sql = "select * from tbl_member where mId=?";
+	public MemberDTO selectOne(String mId,String mPw) {
+//	public MemberDTO selectOne(String member) {
+		String sql = "select * from tbl_member where mId=? and mPw=?";
 		conn = DBConnection.getConnection();
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, member);
+			pstmt.setString(1, mId);
+			pstmt.setString(2, mPw);
 			rs = pstmt.executeQuery();
 
 			MemberDTO dto = new MemberDTO();
@@ -185,14 +187,14 @@ public class MemberDAO extends DTO {
 //		md.Insert(new MemberDTO("testManager", "1234", "eMail2@naver.com", 900101, 2));
 
 		// Member Select Test OK
-		md.selectAll();
+//		md.selectAll();
 
 		/*
 		 * <설명> pstmt.setString(1, member); mId 속성명 중, testUser에 해당하는 회원의 정보를 출력한다.
 		 * selectOne 메소드를 호출 시 괄호() 안의 문자열은 member의 인자로 member 매개변수로 주소 값을 전달한다.
 		 */
 		// Member Select Test OK
-//		md.selectOne("testUser"); // 해당 회원이 존재할 경우
+		md.selectOne("testUser","1234"); // 해당 회원이 존재할 경우
 //		System.out.println(); // 구분선
 //		md.selectOne("false"); // 해당 회원이 존재하지 않을 경우
 //		md.selectOne("testManager"); // Test

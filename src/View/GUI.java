@@ -58,6 +58,9 @@ public class GUI extends JFrame {
 		JButton btnNewButton_1_2 = new JButton("로그인");
 		btnNewButton_1_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				GUI_Login gl = new GUI_Login();
+				gl.setVisible(true);
+
 			}
 		});
 		btnNewButton_1_2.setFont(new Font("맑은 고딕", Font.BOLD, 14));
@@ -66,7 +69,11 @@ public class GUI extends JFrame {
 
 		JButton btnNewButton_1_3 = new JButton("회원 정보");
 		btnNewButton_1_3.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
+				GUI_Member gm = new GUI_Member();
+				gm.setVisible(true);
+
 			}
 		});
 		btnNewButton_1_3.setFont(new Font("맑은 고딕", Font.BOLD, 14));
